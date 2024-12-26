@@ -1,4 +1,4 @@
-public class Car extends Vehicle {
+public class Car extends Vehicle implements Rentable {
     private boolean hasAirConditioning;
 
 
@@ -29,7 +29,7 @@ public class Car extends Vehicle {
     public void rent(Customer customer, int days) {
         if (getIsAvailable()) {
             System.out.println("Renting " + getModel() + " to " + customer.getName() + " for " + days + " days.");
-            setIsAvailable(false);  // Mark the vehicle as unavailable
+            setIsAvailable(false);
         } else {
             System.out.println(getModel() + " is not available for rental.");
         }

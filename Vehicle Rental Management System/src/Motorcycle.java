@@ -1,4 +1,4 @@
-public class Motorcycle extends Vehicle {
+public class Motorcycle extends Vehicle implements Rentable {
     public boolean hasHelmet;
 
     public Motorcycle(String vehicleID, String model, double baseRentalRate, boolean hasHelmet) {
@@ -21,7 +21,7 @@ public class Motorcycle extends Vehicle {
     public void rent(Customer customer, int days) {
         if (getIsAvailable()) {
             System.out.println("Renting " + getModel() + " to " + customer.getName() + " for " + days + " days.");
-            setIsAvailable(false);
+            setIsAvailable(false);  // Mark the vehicle as unavailable
         } else {
             System.out.println(getModel() + " is not available for rental.");
         }

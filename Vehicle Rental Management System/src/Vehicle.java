@@ -1,4 +1,4 @@
-public abstract class Vehicle {
+public abstract class Vehicle implements Rentable{
     private String vehicleID;
     private String model;
     private double baseRentalRate;
@@ -58,7 +58,6 @@ public abstract class Vehicle {
     public abstract boolean isAvailableForRental();
 
 
-    public abstract void rent(Customer customer, int days);
 
-    public abstract void returnVehicle();
+
 }

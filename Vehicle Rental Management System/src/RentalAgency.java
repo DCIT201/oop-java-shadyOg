@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class RentalAgency {
+public class RentalAgency{
     private List<Vehicle> fleet;
 
     public RentalAgency() {
@@ -12,7 +12,6 @@ public class RentalAgency {
     public void addVehicle(Vehicle vehicle) {
         fleet.add(vehicle);
     }
-
 
     public void rentVehicle(Vehicle vehicle, Customer customer, int days) {
         if (vehicle.isAvailableForRental() && customer.isEligibleToRent()) {
@@ -36,4 +35,5 @@ public class RentalAgency {
             System.out.println("Vehicle: " + vehicle.getModel() + " | Available: " + vehicle.isAvailableForRental());
         }
     }
+
 }

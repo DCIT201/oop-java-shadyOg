@@ -1,7 +1,7 @@
-public class Truck extends Vehicle {
+public class Truck extends Vehicle implements Rentable {
     public double towingCapacity;
 
-    public Truck (String vehicleID, String model, double baseRentalRate, double TowingCapacity) {
+    public Truck (String vehicleID, String model, double baseRentalRate, double towingCapacity) {
         super(vehicleID, model, baseRentalRate);
         this.towingCapacity = towingCapacity;
     }
