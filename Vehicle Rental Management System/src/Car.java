@@ -7,6 +7,14 @@ public class Car extends Vehicle implements Rentable {
         this.hasAirConditioning = hasAirConditioning;
     }
 
+    public void setHasAirConditioning(boolean hasAirConditioning) {
+        this.hasAirConditioning = hasAirConditioning;
+    }
+
+    public boolean hasAirConditioning() {
+        return hasAirConditioning;
+    }
+
     @Override
     public double calculatedRentalCost(int days) {
         return getBaseRentalRate() * days + (hasAirConditioning ? 50 : 0);
@@ -17,18 +25,11 @@ public class Car extends Vehicle implements Rentable {
         return getIsAvailable();
     }
 
-    public void setHasAirConditioning(boolean hasAirConditioning) {
-        this.hasAirConditioning = hasAirConditioning;
-    }
-
-    public boolean hasAirConditioning() {
-        return hasAirConditioning;
-    }
 
     @Override
     public void rent(Customer customer, int days) {
         if (getIsAvailable()) {
-            System.out.println("Renting " + getModel() + " to " + customer.getName() + " for " + days + " days.");
+            System.out.println("Renting " + getModel() + " to " + customer.getCustomerName() + " for " + days + " days.");
             setIsAvailable(false);
         } else {
             System.out.println(getModel() + " is not available for rental.");
@@ -39,6 +40,11 @@ public class Car extends Vehicle implements Rentable {
     public void returnVehicle() {
         System.out.println(getModel() + " has been returned.");
         setIsAvailable(true);  // Mark the vehicle as available
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Air Conditioning: " + hasAirConditioning;
     }
 
 

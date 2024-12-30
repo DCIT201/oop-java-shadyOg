@@ -1,5 +1,5 @@
 public class Truck extends Vehicle implements Rentable {
-    public double towingCapacity;
+    private double towingCapacity;
 
     public Truck (String vehicleID, String model, double baseRentalRate, double towingCapacity) {
         super(vehicleID, model, baseRentalRate);
@@ -7,7 +7,7 @@ public class Truck extends Vehicle implements Rentable {
     }
 
     public void setTowingCapacity(double TowingCapacity) {
-        if (towingCapacity > 200){
+        if (towingCapacity < 200){
             System.out.println("Invalid Towing Capacity");
         }
         else {
@@ -20,7 +20,7 @@ public class Truck extends Vehicle implements Rentable {
     }
 
     public double calculatedRentalCost(int days){
-        return getBaseRentalRate() * days + towingCapacity > 5000 ? 200 : 100;
+        return getBaseRentalRate() * days + (towingCapacity > 5000 ? 200 : 100);
     }
 
     public boolean isAvailableForRental(){
@@ -28,9 +28,14 @@ public class Truck extends Vehicle implements Rentable {
     }
 
     @Override
+    public String toString() {
+        return super.toString() + "Towing Capacity: " + towingCapacity;
+    }
+
+    @Override
     public void rent(Customer customer, int days) {
         if (getIsAvailable()) {
-            System.out.println("Renting " + getModel() + " to " + customer.getName() + " for " + days + " days.");
+            System.out.println("Renting " + getModel() + " to " + customer.getCustomerName() + " for " + days + " days.");
             setIsAvailable(false);
         } else {
             System.out.println(getModel() + " is not available for rental.");
