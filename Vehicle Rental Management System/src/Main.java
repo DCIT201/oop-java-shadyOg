@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         // Create rental agency, customers, and vehicles
@@ -17,7 +19,7 @@ public class Main {
 
         // Rent a vehicle
         System.out.println("Renting vehicle to customer...");
-        rentalAgency.rentVehicle(car, customer, 5);  // Rent car for 5 days
+        rentalAgency.rentVehicle(car, customer, 5);
         car.calculatedRentalCost(5);
 
         // Check vehicle availability and rental history
@@ -30,13 +32,32 @@ public class Main {
         rentalAgency.returningVehicle(car);
         System.out.println("Is the car available after returning? " + car.isAvailableForRental());
 
+        //Generate invoice
+        RentalTransaction rentalTransaction1 = new RentalTransaction( car, customer, 5,
+                LocalDate.of(2024,12,21));
+        rentalTransaction1.setReturnDate(LocalDate.of(2024,12,26));
+        rentalTransaction1.generateInvoice();
+
+
         // Rent another vehicle
         System.out.println("Renting motorcycle to customer...");
         rentalAgency.rentVehicle(motorcycle, customer, 3);
         System.out.println("Rental history for customer: " + customer.getRentalHistory().size() + " rental(s)");
 
+        System.out.println("Returning vehicle...");
+        rentalAgency.returningVehicle(motorcycle);
+        System.out.println("Is the motorcycle available after returning? " + motorcycle.isAvailableForRental());
+
+        //Generate invoice
+        RentalTransaction rentalTransaction2 = new RentalTransaction( motorcycle, customer, 3,
+                LocalDate.of(2024,12,28));
+        rentalTransaction2.setReturnDate(LocalDate.of(2024,12,31));
+        rentalTransaction2.generateInvoice();
+
+        //Creating another customer
         Customer newCustomer = new Customer("12345", "Jane Smith", "02447695786");
         rentalAgency.addCustomer(newCustomer);
+        System.out.println("Renting vehicle to customer...");
         rentalAgency.rentVehicle(new Car("C999", "Non-Existent Car",
                 40.0, false), newCustomer, 2);
     }

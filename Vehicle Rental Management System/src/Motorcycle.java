@@ -10,7 +10,7 @@ public class Motorcycle extends Vehicle implements Rentable {
         this.hasHelmet = hasHelmet;
     }
 
-    public boolean hasAirConditioning() {
+    public boolean getHasHelmet() {
         return hasHelmet;
     }
 
@@ -30,8 +30,9 @@ public class Motorcycle extends Vehicle implements Rentable {
     @Override
     public void rent(Customer customer, int days) {
         if (getIsAvailable()) {
-            System.out.println("Renting " + getModel() + " to " + customer.getCustomerName() + " for " + days + " days.");
-            setIsAvailable(false);  // Mark the vehicle as unavailable
+            System.out.println("Renting " + getModel() + " to " + customer.getCustomerName() +
+                    " for " + days + " days.");
+            setIsAvailable(false);
         } else {
             System.out.println(getModel() + " is not available for rental.");
         }
@@ -47,7 +48,5 @@ public class Motorcycle extends Vehicle implements Rentable {
     public String toString() {
         return super.toString() + " Has Helmet: " + hasHelmet;
     }
-
-
 
 }

@@ -41,12 +41,12 @@ public class RentalAgency implements LoyaltyProgram{
             vehicle.rent(customer, days);
 
             customer.addToRentalHistory((Vehicle) vehicle);
+            addPoints(customer, days);
         }
         else{
             System.out.println("We do not have this vehicle in our fleet");
         }
 
-        addPoints(customer, days);
 
     }
 

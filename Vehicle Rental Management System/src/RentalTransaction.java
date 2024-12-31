@@ -52,47 +52,58 @@ public class RentalTransaction {
     }
 
 
-    public Vehicle getVehicle() {
+    public Vehicle getVehicle()
+    {
         return vehicle;
     }
 
-    public void setVehicle(Vehicle vehicle) {
+    public void setVehicle(Vehicle vehicle)
+    {
         this.vehicle = vehicle;
     }
 
-    public Customer getCustomer() {
+    public Customer getCustomer()
+    {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(Customer customer)
+    {
         this.customer = customer;
     }
 
-    public int getRentalDays() {
+    public int getRentalDays()
+    {
         return rentalDays;
     }
 
-    public void setRentalDays(int rentalDays) {
+    public void setRentalDays(int rentalDays)
+    {
         this.rentalDays = rentalDays;
     }
 
-    public double getRentalCost() {
+    public double getRentalCost()
+    {
         return rentalCost;
     }
 
-    public void setRentalCost(double rentalCost) {
+    public void setRentalCost(double rentalCost)
+    {
         this.rentalCost = rentalCost;
     }
 
-    public LocalDate getRentalDate() {
+    public LocalDate getRentalDate()
+    {
         return rentalDate;
     }
 
-    public void setRentalDate(LocalDate rentalDate) {
+    public void setRentalDate(LocalDate rentalDate)
+    {
         this.rentalDate = rentalDate;
     }
 
-    public LocalDate getReturnDate() {
+    public LocalDate getReturnDate()
+    {
         return returnDate;
     }
 }
